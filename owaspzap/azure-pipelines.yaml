@@ -1,0 +1,21 @@
+trigger:
+- none
+
+pool:
+  name: Pool_Name
+
+steps:
+
+- task: OwaspZapScan@2
+  displayName: OWASP Zed Attack Proxy Scan
+  inputs:
+    ZapApiUrl: '<SERVER_IP_ADDRESS>'
+    ZapApiKey: '<API_KEY>'
+    TargetUrl: '<URL>'
+    ExecuteSpiderScan: true
+  enabled: true
+
+- task: publishhtmlreport@1
+  inputs:
+    htmlType: 'genericHTML'
+    htmlPath: '$(System.DefaultWorkingDirectory)/OWASP-ZAP-Report-$(Build.BuildId).html'
