@@ -22,7 +22,7 @@ steps:
 
 - task: Maven@3
   inputs:
-    mavenPomFile: '$(Build.SourcesDirectory)/sonarqubespring/pom.xml'
+    mavenPomFile: '$(Build.SourcesDirectory)/sonarqube/sonarqubespring/pom.xml'
     goals: 'clean package'
     publishJUnitResults: true
     javaHomeOption: 'JDKVersion'
